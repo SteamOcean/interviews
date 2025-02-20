@@ -3,7 +3,6 @@ import { BookList } from './containers/BookList'
 const queryClient = new QueryClient()
 
 function App() {
-
   return (
     <QueryClientProvider client={queryClient}>
       <BookList />
