@@ -47,9 +47,7 @@
               "<node_internals>/**"
             ],
             "env": {
-                "PORT": "5173",
-                "VITE_BACKEND_URL": "https://${env:CODESPACE_NAME}-5254.github.dev",
-                "VITE_GITHUB_TOKEN": "${env:GITHUB_TOKEN}"
+                "PORT": "5173"
             }
         }
     ],
