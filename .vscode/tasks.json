@@ -9,11 +9,7 @@
           "build",
           "${workspaceFolder}/server/book-review-server/book-review-server.csproj"
         ],
-        "problemMatcher": "$msCompile",
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        }
+        "problemMatcher": "$msCompile"
       },
       {
         "label": "backend:watch",
@@ -36,21 +32,36 @@
         "label": "frontend:install",
         "type": "process",
         "command": "npm",
-        "args": ["install"],
-        "options":{
-            "cwd": "${workspaceFolder}/client/book-review-client"
+        "args": [
+          "install"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}/client/book-review-client"
         }
       },
       {
-        "label": "frontend:start",
+        "label": "frontend:build",
         "type": "process",
         "command": "npm",
-        "args": ["run dev"],
-        "isBackground": true,
-        "problemMatcher": "$tsc-watch",
+        "args": [
+          "run", "build"
+        ],
         "options": {
-            "cwd": "${workspaceFolder}/client/book-review-client"
+          "cwd": "${workspaceFolder}/client/book-review-client"
         }
+      },
+      {
+        "label": "Build All",
+        "dependsOn": [
+          "backend:build",
+          "frontend:build"
+        ],
+        "dependsOrder": "parallel",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": []
       }
     ]
 }
